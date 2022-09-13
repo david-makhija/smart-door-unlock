@@ -26,4 +26,22 @@ The functionalities provided by this software should be:
 
 - The server is configured in **Python** that will communicate with the UI application, the database of **MySQL** to maintain history and arduino.
 
+### REQUIREMENTS (Hardware)
+- Arduino Uno Rev 3
+- Arduino Programming Cable
+- Servo Motor and attachments
+- Jumper Wires
+- Hi-watt battery
+
+### REQUIREMENTS (Software)
+- Arduino IDE 
+- Python IDE
+
+### INSTALLATION
+
+- Install PySerial
+```python
+pip install pyserial
+```
+
 
