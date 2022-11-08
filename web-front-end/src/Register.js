@@ -12,7 +12,7 @@ function Register() {
                 <blockquote class="blockquote mb-0">
                 <form>
                     <div class="form-row">
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-4 mb-3" id='first-name'>
                         <label for="validationCustom01">First name</label>
                         <input type="text" class="form-control" id="validationCustom01" placeholder="First name" required/>
                         <div class="valid-feedback">

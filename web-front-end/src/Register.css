@@ -7,9 +7,24 @@
 #RegisterCard {
     display: inline-block;
     background-color: aliceblue;
-    width: 60vw;
+    width: 750px;
     text-align: left;
     margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+@media screen and (max-width:900px) {
+    #RegisterCard {
+        display: inline-block;
+        background-color: aliceblue;
+        width: 83.33vw;
+        text-align: left;
+        margin-top: 30px;
+    }
+}
+
+#first-name {
+    display: block;
 }
 
 #login {
