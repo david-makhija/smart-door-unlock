@@ -1,0 +1,2 @@
+# This script is computed on the Arduino Uno
+## Program the Arduino Uno Rev 3 using the Arduino IDE and upload this script onto the board. The connection from server to the board can be established using Bluetooth module.
