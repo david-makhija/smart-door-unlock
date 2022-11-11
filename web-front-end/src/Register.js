@@ -61,7 +61,7 @@ function Register() {
                             </label>
                         </div>
                     </div> */}
-                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                    <Link to="/groups"><button type="submit" class="btn btn-primary">Sign Up</button></Link>
                     <p className="card-text" id='login'>Already have an account?  <a href="/" className="card-link"><Link to="/">  Login</Link></a></p>
                 </form>
                 </blockquote>
