@@ -15,7 +15,7 @@ function Login() {
           <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-lock"></i></span>
           <input type="password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="addon-wrapping"/>
         </div>
-        <button type="button" class="btn btn-primary btn-lg btn-block" id='login-btn'>Log in</button>
+        <Link to="groups"><button type="button" class="btn btn-primary btn-lg btn-block" id='login-btn'>Log in</button></Link>
         <a href="/" className="card-link" id='forgotLink'>Forgotten your password?</a>
         <p className="card-text" id='signUp'>Don't have an account?  <a href="/" className="card-link"><Link to="register">  Sign up</Link></a></p>
       </div>
