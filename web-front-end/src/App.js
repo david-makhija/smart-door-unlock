@@ -1,12 +1,12 @@
-import './App.css';
-import Register from './Register';
-import Login from './Login';
-import Groups from './Groups';
+import Register from './Components/Register/Register';
+import Login from './Components/Login/Login';
+import Groups from './Components/Groups/Groups';
 import {
   BrowserRouter as Router,
   Routes,
   Route,
 } from "react-router-dom";
+
 function App() {
   return (
     <Router>
