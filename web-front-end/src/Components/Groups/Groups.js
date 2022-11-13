@@ -3,6 +3,7 @@ import "./Groups.css";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { createGroupApi } from "../../Api/Groups";
 
 function Groups() {
   return (
@@ -16,7 +17,7 @@ function Groups() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/" style={{color: "aliceblue"}}>Create-Group</Nav.Link>
-            <Nav.Link href="/" style={{color: "aliceblue"}}>Join-Group</Nav.Link>
+            <button onClick={createGroupApi} style={{color: "aliceblue"}}>Join-Group</button>
             <Nav.Link href="/" style={{color: "aliceblue"}}>Log Out</Nav.Link>
           </Nav>
         </Navbar.Collapse>
