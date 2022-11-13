@@ -4,13 +4,15 @@ import React, { useState } from 'react';
 import { registerApi } from '../../Api/Users';
 
 function Register() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleSignUp = async (e) => {
     e.preventDefault();
-    const user = await registerApi(email, password)
+    const user = await registerApi(email, password, confirmPassword, firstName, lastName)
     console.log(user)
   }
 
@@ -25,11 +27,11 @@ function Register() {
               <div className="form-row">
                 <div className="col-md-4 mb-3" id='first-name'>
                   <label htmlFor="validationCustom01">First name</label>
-                  <input type="text" className="form-control" id="validationCustom01" placeholder="First name" required />
+                  <input type="text" className="form-control" id="validationCustom01" placeholder="First name" required value={firstName} onChange={(e) => setFirstName(e.target.value) } />
                 </div>
                 <div className="col-md-4 mb-3" id='last-name'>
                   <label htmlFor="validationCustom02">Last name</label>
-                  <input type="text" className="form-control" id="validationCustom02" placeholder="Last name" required />
+                  <input type="text" className="form-control" id="validationCustom02" placeholder="Last name" required value={lastName} onChange={(e) => setLastName(e.target.value) } />
                 </div>
               </div>
               {/* Email for verification */}

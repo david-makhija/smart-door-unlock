@@ -7,8 +7,8 @@ function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState("");
   
-  const handleLogin = async () => {
-    const user = await loginApi(email, password);
+  const handleLogin = () => {
+    const user = loginApi(email, password);
     console.log(user);
   }
 
