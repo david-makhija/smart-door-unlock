@@ -1,0 +1,33 @@
+#cardBody{
+    text-align: center;
+    background: linear-gradient(160deg, rgba(2,0,36,1) 0%, rgba(121,9,113,1) 50%, rgba(0,212,255,1) 100%);
+    min-height: 100vh;
+}
+
+#RegisterCard {
+    display: inline-block;
+    background-color: aliceblue;
+    width: 750px;
+    text-align: left;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+@media screen and (max-width:900px) {
+    #RegisterCard {
+        display: inline-block;
+        background-color: aliceblue;
+        width: 83.33vw;
+        text-align: left;
+        margin-top: 30px;
+    }
+}
+
+#first-name {
+    display: block;
+}
+
+#login {
+    margin-top: 20px;
+    text-align: center;
+}
