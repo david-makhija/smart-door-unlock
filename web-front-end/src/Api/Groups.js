@@ -10,5 +10,11 @@ export const createGroupApi = async () => {
     })
 }
 // Join group
+export const joinGroupApi = () => {
+    
+}
 
-
+// My Groups
+export const fetchMyGroupsApi = async () => {
+    
+}

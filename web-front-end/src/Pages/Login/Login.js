@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
 import './Login.css';
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import { loginApi } from '../../Api/Users';
 
 function Login() {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState("");
   
   const handleLogin = () => {
     const user = loginApi(email, password);
-    console.log(user);
+    console.log(user)
+    if (user){
+      navigate("/groups")
+    }
   }
 
   return (
