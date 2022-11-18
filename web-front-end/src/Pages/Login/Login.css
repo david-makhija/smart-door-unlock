@@ -50,7 +50,7 @@
   text-align: start;
 }
 
-#login-btn {
+#login-btn, #forgot-btn {
   padding: 5px;
   margin-top: 25px;
   font-size: 17px;

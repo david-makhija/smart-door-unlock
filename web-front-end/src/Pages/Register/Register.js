@@ -56,7 +56,7 @@ function Register() {
 
               <button type="submit" className="btn btn-primary" onClick={handleSignUp}>Sign Up</button>
               <p className="card-text" id='login'>Already have an account?
-                <Link to="/"> Login </Link>
+                <Link to="/login"> Login </Link>
               </p>
             </form>
           </blockquote>

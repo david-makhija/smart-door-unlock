@@ -1,10 +1,10 @@
 import { auth } from "../firebase";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail } from 'firebase/auth'
 import { toast } from 'react-toastify'
 
 // Register 
-export const registerApi = (email, password, confirmPassword, firstName, lastName) => {
-  if (password !== confirmPassword){
+export const registerApi = async (email, password, confirmPassword, firstName, lastName) => {
+  if (password !== confirmPassword) {
     toast.error("Passwords do not match.")
     return;
   }
@@ -18,7 +18,7 @@ export const registerApi = (email, password, confirmPassword, firstName, lastNam
     })
     .catch((error) => {
       console.log(error.code)
-      switch(error.code){
+      switch (error.code) {
         case 'auth/weak-password':
           toast.info("The password must have atleast 6 characters")
           return;
@@ -42,7 +42,7 @@ export const loginApi = (email, password) => {
     })
     .catch((error) => {
       console.log(error.code)
-      switch(error.code){
+      switch (error.code) {
         case 'auth/user-not-found':
           toast.warning("The email is not registered.")
           return;
@@ -68,3 +68,8 @@ export const logoutApi = () => {
 }
 
 // Forgot Password
+export const forgotPasswordApi = async (email) => {
+  await sendPasswordResetEmail(auth, email)
+  toast.success("Password reset email sent")
+  toast.info("Check your spam folders!")
+}
