@@ -1,5 +1,5 @@
 import { auth } from "../firebase";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'
 import { toast } from 'react-toastify'
 
 // Register 
@@ -38,12 +38,33 @@ export const loginApi = (email, password) => {
     .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
-      console.log(user)
-      return user;
+      window.location.href = "/groups"
     })
     .catch((error) => {
-      window.alert("Err occured", error)
+      console.log(error.code)
+      switch(error.code){
+        case 'auth/user-not-found':
+          toast.warning("The email is not registered.")
+          return;
+        case 'auth/wrong-password':
+          toast.info("The password does not match")
+          return;
+        default:
+          toast.error("Error occured in auth, try again!")
+          return;
+      }
     });
+}
+
+// Logout
+export const logoutApi = () => {
+  signOut(auth).then(() => {
+    // Sign-out successful.
+    window.location.href = "/login"
+  }).catch((error) => {
+    // An error happened.
+    toast.error("Sign out was unsuccessful")
+  });
 }
 
 // Forgot Password
