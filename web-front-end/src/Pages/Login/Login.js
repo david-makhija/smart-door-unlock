@@ -10,11 +10,7 @@ function Login() {
   const [password, setPassword] = useState("");
   
   const handleLogin = () => {
-    const user = loginApi(email, password);
-    console.log(user)
-    if (user){
-      navigate("/groups")
-    }
+    loginApi(email, password);
   }
 
   return (
