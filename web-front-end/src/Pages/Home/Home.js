@@ -1,7 +1,20 @@
 import React from 'react'
+import Header from '../../Components/Header'
+import './Home.css';
 
 export default function Home() {
+  // @David
   return (
-    <h1>Home</h1>
+    <>
+      <Header />
+      {/* Banner  */}
+      <div>
+        Welcome Banner
+      </div>
+
+      <div>
+        About the technologies used
+      </div>
+    </>
   )
 }

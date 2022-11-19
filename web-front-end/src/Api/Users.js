@@ -1,24 +1,24 @@
-import { auth } from "../firebase";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'
+import { auth, db } from "../firebase";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail } from 'firebase/auth'
 import { toast } from 'react-toastify'
-
+import { doc, setDoc } from "firebase/firestore";
 // Register 
-export const registerApi = (email, password, confirmPassword, firstName, lastName) => {
-  if (password !== confirmPassword){
+export const registerApi = async (email, password, confirmPassword, firstName, lastName, phone) => {
+  if (password !== confirmPassword) {
     toast.error("Passwords do not match.")
     return;
   }
-
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // Signed in 
-      toast.success("Account created")
-      const user = userCredential.user;
-      return user;
+      // Save additional details in a doc of 'user' collection
+      setDoc(doc(db, 'users', email), {
+        firstName, lastName, phone
+      })
+      window.location.href="/";
     })
     .catch((error) => {
       console.log(error.code)
-      switch(error.code){
+      switch (error.code) {
         case 'auth/weak-password':
           toast.info("The password must have atleast 6 characters")
           return;
@@ -37,12 +37,11 @@ export const loginApi = (email, password) => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in 
-      const user = userCredential.user;
       window.location.href = "/groups"
     })
     .catch((error) => {
       console.log(error.code)
-      switch(error.code){
+      switch (error.code) {
         case 'auth/user-not-found':
           toast.warning("The email is not registered.")
           return;
@@ -68,3 +67,8 @@ export const logoutApi = () => {
 }
 
 // Forgot Password
+export const forgotPasswordApi = async (email) => {
+  await sendPasswordResetEmail(auth, email)
+  toast.success("Password reset email sent")
+  toast.info("Check your spam folders!")
+}

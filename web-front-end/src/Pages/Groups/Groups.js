@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import "./Groups.css";
 import Header from '../../Components/Header';
 import { fetchMyGroupsApi } from '../../Api/Groups'
+import { joinGroupApi, createGroupApi } from "../../Api/Groups";
 
 function Groups() {
   const [myGroups, setMyGroups] = useState([])
-
   useEffect(() => {
     const getGroups = async () => {
       const res = await fetchMyGroupsApi();
@@ -17,6 +17,9 @@ function Groups() {
   return (
     <div id="grpBody">
       <Header />
+      <button onClick={createGroupApi}> Create Group </button>
+      <button onClick={joinGroupApi}> Join Group </button>
+      
       {myGroups?.map((group, index) => {
         return <div key={index} className="p-5 text-center" id="jumboTron">
           <h1 className="mb-3">{group.name}</h1>

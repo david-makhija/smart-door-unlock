@@ -1,20 +1,15 @@
 import React, { useState } from 'react';
 import './Login.css';
-import {Link, useNavigate} from "react-router-dom";
-import { loginApi } from '../../Api/Users';
+import {Link} from "react-router-dom";
+import { loginApi, forgotPasswordApi } from '../../Api/Users';
 
 function Login() {
-  const navigate = useNavigate();
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState("");
   
   const handleLogin = () => {
-    const user = loginApi(email, password);
-    console.log(user)
-    if (user){
-      navigate("/groups")
-    }
+    loginApi(email, password);
   }
 
   return (
@@ -36,9 +31,10 @@ function Login() {
         {/* SUBMIT */}
         <button type="button" className="btn btn-primary btn-lg btn-block" id='login-btn' onClick={handleLogin}>Log in</button>
 
-        <a href="/" className="card-link" id='forgotLink'>Forgotten your password?</a>
+        <button onClick={() => forgotPasswordApi(email)} className="btn btn-primary btn-lg btn-block" id="forgot-btn">Forgot password</button>
+
         <p className="card-text" id='signUp'>Don't have an account?
-          <Link to="register"> Sign up </Link>
+          <Link to="/register"> Sign up </Link>
         </p>
       </div>
     </div>
